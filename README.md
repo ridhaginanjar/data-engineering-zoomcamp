@@ -7,5 +7,5 @@
 
 # Course Note
 
-- [Week 1: Introduction & Prerequisites] (week-1) :
+- [Week 1: Introduction & Prerequisites](week-1) :
     - Introduction to Docker : Build Image and interact with it
