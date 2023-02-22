@@ -18,6 +18,7 @@ pgcli -h localhost -p 5432 -u root -d ny_taxi
 #h: host, p: port, u: user, d:data -> after enter this command, u have to enter password
 
 #UPLOAD DATA WITH JUPYTER NOTEBOOK
+pip install pandas
 pip install jupyter 
 pip install pandas
 pip install pyarrow #because i've to convert from PARQUET to pandas
@@ -25,4 +26,4 @@ pip install pyarrow #because i've to convert from PARQUET to pandas
 pip install sqlalchemy #for create engine to connect with postgres
 
 # The Route :
-# CREATE DOCKER WITH POSTGRES -> USE PGCLI TO CONNECT LOCAL WITH POSTGRES -> IMPORT PARQUET DATA -> USE NOTEBOOK TO TRANSFORM AND UPLOAD DATA TO POSTGRES
+# CREATE DOCKER WITH POSTGRES -> USE PGCLI TO CONNECT LOCAL WITH POSTGRES -> IMPORT PARQUET DATA -> USE NOTEBOOK TO TRANSFORM AND UPLOAD DATA TO POSTGRES (Or Use Python ingest-data.py)
