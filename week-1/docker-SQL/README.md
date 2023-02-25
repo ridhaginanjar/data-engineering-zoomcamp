@@ -54,7 +54,7 @@ docker run -it image:version 2023-02-01
 ```
 
 # Step 2: SQL
-After we already know about docker, now we will get introduce from SQL.
+After we already know about docker, now we will get introduce to SQL.
 
 We use **PostgreSQL** as Database 
 
@@ -95,7 +95,7 @@ pip install psycopg_binary
 
 > psycopg_binary is the dependencies if we have some trouble when installing.
 
-3. Jupyter Notebook :
+## Jupyter Notebook :
 ```
 pip install jupyter
 ```
@@ -112,7 +112,7 @@ The library that i used :
 
 > sqlalchemy is for connect to DB
 
-4. ingest-data.py :
+## ingest-data.py :
 Another method that we use if we don't want to use jupyter notebook, we can use python file.
 
 Here's something I just found out from this file :
@@ -141,5 +141,5 @@ It will trigger the name "ingest-data" as main program, and the function that we
 main(args)
 ```
 
-5. yellow_tripdata_2021-01.parquet :
+## yellow_tripdata_2021-01.parquet :
 We use data from January 2021.
