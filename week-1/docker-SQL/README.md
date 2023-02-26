@@ -204,19 +204,25 @@ localhost:8080
 Here is the step to connect to your PostgreSQL using PGAdmin
 
 1. Login
+
 ![Login](images/Localhost%20-%20Docker%20PGAdmin.PNG)
 
 Login using PGADMIN_DEFAULT_EMAIL and your PGADMIN_DEFAULT_PASSWORD
 
 2. Create Server
+
 ![Create Server](images/PGadmin%20Dashboard.PNG)
+
 Click: Register -> Server
 
 3. Input your DB Environment
+
 ![General](images/General%20-%20Register%20Server.PNG)
+
 Fill form: Input your Server Name
 
 ![Connection](images/Connection%20-%20Register%20Server.PNG)
+
 Fill form : Hostname -> name of your postgre container, username -> fill with your db postgresql username (-e username), password -> fill with your db postgresql password (-e password).
 
 Click : Save
