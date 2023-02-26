@@ -143,3 +143,98 @@ main(args)
 
 ## yellow_tripdata_2021-01.parquet :
 We use data from January 2021.
+
+# Step 3: Intro to PGAdmin and Network
+In this step we will cover this topic :
+Create docker network -> PGAdmin using Docker -> Connect existing container to the network ->
+Rename existing container
+
+Lastly, I also learn about delete all unused resources.
+
+Project File :
+- [pgadmin-network.sh](pgadmin-network.sh)
+- [images](images)
+
+## Network
+Docker network is a way for Docker containers to communicate with each other over a virtual network.
+
+When you create a Docker container, it is isolated from the host machine and other containers by default. However, you can create a Docker network to connect multiple containers and allow them to communicate with each other over a virtual network.
+
+When you create a Docker network, Docker creates a virtual network interface on the host machine and assigns an IP address range to the network.
+
+There are several types of Docker networks available, such as bridge networks, overlay networks, and MACVLAN networks. Each type of network has its own set of characteristics and use cases. BUT in this case, we will bridge network.
+
+```
+docker network create <NetworkName>
+```
+The code above is used for create network
+
+```
+docker network connect <NetworkName> <ContainerName>
+```
+The code above is used for connect container with the network
+
+```
+docker run -it --network="Network Name" --name ContainerName images:version
+```
+
+OR you can initiate network name when you want to create images/container
+
+## Docker PGAdmin
+In this step, we will use PGAdmin using Docker Images. Here is default command how to create and run image/container
+
+```
+docker run -it -e PGADMIN_DEFAULT_EMAIL="admin@admin.com" \
+-e PGADMIN_DEFAULT_PASSWORD="root" -p 8080:80 --network=pg-network \
+--name pg-admin dpage/pgadmin4
+```
+
+> --network: ,Input your exisiting "bridge" network here
+
+> --name ,Set your container name here
+
+> dpage/pgadmin4, pgadmin images
+
+After you create and run PGAdmin Container, you can access PGAdmin through :
+
+```
+localhost:8080
+```
+
+Here is the step to connect to your PostgreSQL using PGAdmin
+
+1. Login
+![Login](images/Localhost%20-%20Docker%20PGAdmin.PNG)
+
+Login using PGADMIN_DEFAULT_EMAIL and your PGADMIN_DEFAULT_PASSWORD
+
+2. Create Server
+![Create Server](images/PGadmin%20Dashboard.PNG)
+Click: Register -> Server
+
+3. Input your DB Environment
+![General](images/General%20-%20Register%20Server.PNG)
+Fill form: Input your Server Name
+
+![Connection](images/Connection%20-%20Register%20Server.PNG)
+Fill form : Hostname -> name of your postgre container, username -> fill with your db postgresql username (-e username), password -> fill with your db postgresql password (-e password).
+
+Click : Save
+
+
+## Docker Prune
+Docker prune is a command that allows you to remove unused Docker resources from your system.
+
+```
+docker <resources> prune
+```
+> Resources: volume, images, container, network, system
+
+```
+docker system prune
+```
+The code above is to delete all unused resources automatically.
+By default, It will included images, container, network.
+
+> -a --volumes, is used for delete all resources include volumes, etc.
+
