@@ -43,7 +43,14 @@ ENTRYPOINT [ "python", "pipeline.py" ]
 ```
 We will automatically running "python pipeline.py" when we run the container/image.
 > Normally, after we create (run) docker we will jump to "bash".
-> So, we should to run "python pipeline.py" manually 
+> So, we should to run "python pipeline.py" manually
+
+To **build image** from Dockerfile, use this syntax:
+
+```
+docker build -t <image:version> <path-of-dockerfile>
+```
+You can use "." to initiate path of dockerfile as **in current directory** 
 
 ## [pipeline.py](pipeline.py)
 This file will contain the program. So, basically this file just will show text "your job is running successfully {day}"
@@ -53,7 +60,7 @@ So, if you want to run DOCKER make sure you specify the date
 docker run -it image:version 2023-02-01
 ```
 
-# Step 2: SQL
+# Step 2: SQL and Ingesting Data
 After we already know about docker, now we will get introduce to SQL.
 
 We use **PostgreSQL** as Database 
@@ -113,9 +120,15 @@ The library that i used :
 > sqlalchemy is for connect to DB
 
 ## ingest-data.py :
-Another method that we use if we don't want to use jupyter notebook, we can use python file.
+This file is originally from .ipynb that converted to .py. Here is the way of
+How to convert .ipynb (Notebook) to .py (Python Script):
 
-Here's something I just found out from this file :
+```
+jupyter nbconvert --to=script <notebook-name>.ipynb
+```
+The code above will convert your notebook into the python script with the same name.
+
+And here's something **I new learned** from this file :
 ```
 import argparse
 ```
