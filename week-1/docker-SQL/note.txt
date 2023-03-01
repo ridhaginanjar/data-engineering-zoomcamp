@@ -3,3 +3,4 @@ Note from .gitignore :
 .ipynb_checkpoints/ -> Jupyter Notebook Checkpoints
 ny-taxi-postgres-data/ -> #Volume of docker image postgres
 *.parquet -> Dataset
+*.csv -> Dataset
