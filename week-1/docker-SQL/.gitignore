@@ -1,4 +1,5 @@
 .ipynb_checkpoints/
 ny-taxi-data/
+ny-taxi-data-compose/
 *.parquet
 *.csv
